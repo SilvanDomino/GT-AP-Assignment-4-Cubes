@@ -1,19 +1,19 @@
-﻿Build started 3/11/2014 11:54:58 PM.
-     1>Project "D:\GitRepos\GT-AP-Cubes\cyclone-physics-master\build\cyclone_vc10.vcxproj" on node 2 (build target(s)).
+﻿Build started 3/12/2014 12:14:10 AM.
+     1>Project "D:\GitRepos\GT-AP-Assignment-4-Cubes\cyclone-physics-master\build\cyclone_vc10.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating ".\tmp\Debug\cyclone.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
          All outputs are up-to-date.
        Lib:
          All outputs are up-to-date.
-         cyclone_vc10.vcxproj -> D:\GitRepos\GT-AP-Cubes\cyclone-physics-master\build\.\..\lib\cyclone_d.lib
+         cyclone_vc10.vcxproj -> D:\GitRepos\GT-AP-Assignment-4-Cubes\cyclone-physics-master\build\.\..\lib\cyclone_d.lib
        BscMake:
          All outputs are up-to-date.
        FinalizeBuildStatus:
          Deleting file ".\tmp\Debug\cyclone.unsuccessfulbuild".
          Touching ".\tmp\Debug\cyclone.lastbuildstate".
-     1>Done Building Project "D:\GitRepos\GT-AP-Cubes\cyclone-physics-master\build\cyclone_vc10.vcxproj" (build target(s)).
+     1>Done Building Project "D:\GitRepos\GT-AP-Assignment-4-Cubes\cyclone-physics-master\build\cyclone_vc10.vcxproj" (build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.04
+Time Elapsed 00:00:00.03
