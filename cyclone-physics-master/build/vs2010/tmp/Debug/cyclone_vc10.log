@@ -1,0 +1,19 @@
+﻿Build started 2/24/2014 9:19:33 PM.
+     1>Project "C:\Users\Frans Jan\Documents\School\BU GT\Advanced Physics\cyclone-physics-master\build\vs2010\cyclone_vc10.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating ".\tmp\Debug\cyclone.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+       Lib:
+         All outputs are up-to-date.
+         cyclone_vc10.vcxproj -> C:\Users\Frans Jan\Documents\School\BU GT\Advanced Physics\cyclone-physics-master\build\vs2010\.\..\lib\cyclone_d.lib
+       BscMake:
+         All outputs are up-to-date.
+       FinalizeBuildStatus:
+         Deleting file ".\tmp\Debug\cyclone.unsuccessfulbuild".
+         Touching ".\tmp\Debug\cyclone.lastbuildstate".
+     1>Done Building Project "C:\Users\Frans Jan\Documents\School\BU GT\Advanced Physics\cyclone-physics-master\build\vs2010\cyclone_vc10.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.35

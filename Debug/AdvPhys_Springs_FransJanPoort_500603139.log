@@ -1,0 +1,18 @@
+﻿Build started 3/11/2014 11:54:58 PM.
+     1>Project "D:\GitRepos\GT-AP-Cubes\AdvPhys_Springs_FransJanPoort_500603139.vcxproj" on node 2 (build target(s)).
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(299,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+     1>InitializeBuildStatus:
+         Creating "Debug\AdvPhys_Springs_FransJanPoort_500603139.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+       Link:
+         All outputs are up-to-date.
+         AdvPhys_Springs_FransJanPoort_500603139.vcxproj -> D:\GitRepos\GT-AP-Cubes\.\bin\AdvPhys_Springs_FransJanPoort_500603139.exe
+       FinalizeBuildStatus:
+         Deleting file "Debug\AdvPhys_Springs_FransJanPoort_500603139.unsuccessfulbuild".
+         Touching "Debug\AdvPhys_Springs_FransJanPoort_500603139.lastbuildstate".
+     1>Done Building Project "D:\GitRepos\GT-AP-Cubes\AdvPhys_Springs_FransJanPoort_500603139.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.06
