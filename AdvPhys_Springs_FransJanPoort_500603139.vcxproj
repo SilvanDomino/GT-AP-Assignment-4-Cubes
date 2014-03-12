@@ -69,6 +69,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Cube.cpp" />
     <ClCompile Include="src\app.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\springs.cpp" />
@@ -80,6 +81,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Cube.h" />
     <ClInclude Include="src\app.h" />
     <ClInclude Include="src\timing.h" />
   </ItemGroup>
