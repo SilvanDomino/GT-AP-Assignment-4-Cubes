@@ -11,6 +11,8 @@
 using namespace cyclone;
 class Springs : public RigidBodyApplication
 {
+	Cube cubes[3];
+
 	/** Processes the contact generation code. */
     virtual void generateContacts();
 
@@ -44,11 +46,17 @@ public:
 // Method definitions
 Springs::Springs():RigidBodyApplication()
 {
-	cube1 = Cube();
+	for(int i = 0; i < 3; i ++){
+		cubes[i] = Cube(Vector3(0,i,0), Quaternion(), Vector3(0.5,0.5,0.5), Vector3(0,0,0));
+	}
 }
 
 Springs::~Springs()
 {
+
+}
+
+void Springs::reset(){
 
 }
 
@@ -64,12 +72,12 @@ void Springs::mouseDrag(int x, int y){
 void Springs::display()
 {
 	RigidBodyApplication::display();
-	cube1.displayCube();
+	for(int i = 0; i < 3; i ++){
+		cubes[i].render();
+	}
 	lvlGraph.displayLevel();
 }
-void Springs::reset(){
 
-}
 
 void Springs::update()
 {

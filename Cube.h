@@ -3,15 +3,28 @@
 #include "cyclone-physics-master\include\gl\glut.h"
 
 using namespace cyclone;
-class Cube
+class Cube : public cyclone::CollisionBox
 {
 public:
-	Cube(void);
+	bool isOverlapping;
+	Cube();
+	Cube(	Vector3 &position,
+			Quaternion &orientation,
+			Vector3 &extents,
+			Vector3 &velocity);
 	~Cube(void);
-	void displayCube();
+	
+	// Draws the box 
+	void render();
+	//void displayCube();
+
+	// Sets the box to a specific location
+	void setState(const cyclone::Vector3 &position,
+				  const cyclone::Quaternion &orientation,
+                  const cyclone::Vector3 &extents,
+                  const cyclone::Vector3 &velocity);
+
 	Vector3 vertices[8];
-	RigidBody rigidBody;
-private:
-	void setVertices(Vector3* vertexArray);
+	cyclone::RigidBody rigidBody;
 };
 

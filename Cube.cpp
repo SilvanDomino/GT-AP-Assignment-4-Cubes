@@ -1,47 +1,63 @@
 #include "Cube.h"
 #include <iostream>
 
-Cube::Cube(void)
+Cube::Cube(	Vector3 &position,
+			Quaternion &orientation,
+            Vector3 &extents,
+            Vector3 &velocity)
 {
-	rigidBody = RigidBody();
-	setVertices(vertices);
+	body = new RigidBody();
+	this->setState(position, orientation, extents, velocity);
+}
+Cube::Cube(){
+	body = new RigidBody();
 }
 
-void Cube::displayCube(){
-	glBegin(GL_LINES);
-    glColor3f(1,0,0);
-	//draws the top and bottom squares
-	for(int j = 0; j < 2; j++){
-		for(int i = 0; i < 4; i++){
-			Vector3* a = &vertices[i + j*4];
-			Vector3* b;
-			i != 3 ? b = &vertices[i+1+ j*4] : b = &vertices[j*4] ;
-			glVertex3f(a->x, a->y, a->z);
-			glVertex3f(b->x, b->y, b->z);
-		}
-	}
-	//draws the lines between the squares
-	for(int i = 0; i < 4; i++){
-			Vector3* a = &vertices[i];
-			Vector3* b= &vertices[i+4];
-			glVertex3f(a->x, a->y, a->z);
-			glVertex3f(b->x, b->y, b->z);
-		}
+void Cube::render()
+{
+	// Get the OpenGL transformation
+    GLfloat mat[16];
+    body->getGLTransform(mat);
 
-	glEnd();
+    if (isOverlapping) glColor3f(0.7f,1.0f,0.7f);
+    else if (body->getAwake()) glColor3f(1.0f,0.7f,0.7f);
+    else glColor3f(0.7f,0.7f,1.0f);
+
+    glPushMatrix();
+    glMultMatrixf(mat);
+    glScalef(halfSize.x*2, halfSize.y*2, halfSize.z*2);
+    glutSolidCube(1.0f);
+    glPopMatrix();
 }
 
-void Cube::setVertices(Vector3* vertexArray){
-	vertexArray[0] = Vector3(-0.5, -0.5, -0.5);
-	vertexArray[1] = Vector3(0.5, -0.5, -0.5);
-	vertexArray[2] = Vector3(0.5, -0.5, 0.5);
-	vertexArray[3] = Vector3(-0.5, -0.5, 0.5);
+void Cube::setState(const cyclone::Vector3 &position,
+				  const cyclone::Quaternion &orientation,
+                  const cyclone::Vector3 &extents,
+                  const cyclone::Vector3 &velocity)
+{
+	body->setPosition(position);
+    body->setOrientation(orientation);
+    body->setVelocity(velocity);
+    body->setRotation(cyclone::Vector3(0,0,0));
+    halfSize = extents;
 
-	vertexArray[4] = Vector3(-0.5, 0.5, -0.5);
-	vertexArray[5] = Vector3(0.5, 0.5, -0.5);
-	vertexArray[6] = Vector3(0.5, 0.5, 0.5);
-	vertexArray[7] = Vector3(-0.5, 0.5, 0.5);
+    cyclone::real mass = halfSize.x * halfSize.y * halfSize.z * 8.0f;
+    body->setMass(mass);
+
+    cyclone::Matrix3 tensor;
+    tensor.setBlockInertiaTensor(halfSize, mass);
+    body->setInertiaTensor(tensor);
+
+    body->setLinearDamping(0.95f);
+    body->setAngularDamping(0.8f);
+    body->clearAccumulators();
+    body->setAcceleration(0,-10.0f,0);
+
+    body->setAwake();
+
+    body->calculateDerivedData();
 }
+
 Cube::~Cube(void)
 {
 }
