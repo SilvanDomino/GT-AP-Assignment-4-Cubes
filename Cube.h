@@ -10,6 +10,7 @@ public:
 	~Cube(void);
 	void displayCube();
 	Vector3 vertices[8];
+	RigidBody rigidBody;
 private:
 	void setVertices(Vector3* vertexArray);
 };

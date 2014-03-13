@@ -6,13 +6,11 @@
 #include <stdio.h>
 #include <cassert>
 #include "../Cube.h"
+#include "../LevelGraph.h"
 
-#define BASE_MASS 1
-#define EXTRA_MASS 10
 using namespace cyclone;
-class Springs : public MassAggregateApplication
+class Springs : public RigidBodyApplication
 {
-	cyclone::ParticleSpring *spring;
 
 public:
     /** Creates a new demo object. */
@@ -28,13 +26,21 @@ public:
     /** Update the particle positions. */
     virtual void update();
 
+	 /** Handle a mouse click. */
+    virtual void mouse(int button, int state, int x, int y);
+
+    /** Handle a mouse drag */
+    virtual void mouseDrag(int x, int y);
+
+    /** Handles a key press. */
+    virtual void key(unsigned char key);
+
 	Cube cube1;
+	LevelGraph lvlGraph;
 };
 
 // Method definitions
-Springs::Springs()
-:
-MassAggregateApplication( 3 ), spring(0)
+Springs::Springs():RigidBodyApplication()
 {
 	cube1 = Cube();
 }
@@ -43,24 +49,32 @@ Springs::~Springs()
 {
 
 }
-
+void Springs::key(unsigned char key){
+	RigidBodyApplication::key(key);
+}
+void Springs::mouse(int button, int state, int x, int y){
+	RigidBodyApplication::mouse(button, state, x, y);
+}
+void Springs::mouseDrag(int x, int y){
+	RigidBodyApplication::mouseDrag(x, y);
+}
 void Springs::display()
 {
-    MassAggregateApplication::display();
+	RigidBodyApplication::display();
 	cube1.displayCube();
-    
+	lvlGraph.displayLevel();
 
-    glEnd();
+    
 }
 
 void Springs::update()
 {
-    MassAggregateApplication::update();
+    RigidBodyApplication::update();
 }
 
 const char* Springs::getTitle()
 {
-    return "AdvPhys Ass3: FranJanPoort_506031396";
+    return "Lets make cubes!";
 }
 
 
