@@ -9,6 +9,8 @@
 #include "../LevelGraph.h"
 
 using namespace cyclone;
+
+
 class Springs : public RigidBodyApplication
 {
 	Cube cubes[3];
@@ -47,8 +49,12 @@ public:
 Springs::Springs():RigidBodyApplication()
 {
 	for(int i = 0; i < 3; i ++){
-		cubes[i] = Cube(Vector3(0,7,i*3 - 1), Quaternion(), Vector3(0.5,0.5,0.5), Vector3(0,0,0));
+		cubes[i] = Cube(Vector3(0,10,i*3 - 1), Quaternion(), Vector3(0.5,0.5,0.5), Vector3(0,0,0));
 	}
+	plane.direction = Vector3(0, 1, 0);
+	plane.offset = 0;
+
+	//cData.
 }
 
 Springs::~Springs()
@@ -85,13 +91,29 @@ void Springs::update()
 	for(int i = 0; i < 3; i ++){
 		cubes[i].update();
 	}
-	float duration = (float)TimingData::get().lastFrameDuration * 0.0002f;
+	//creates the delta time the physics are working with. The higher the number the faster it goes.
+	float duration = (float)TimingData::get().lastFrameDuration * 0.0005f;
 	updateObjects(duration);
-}
-void Springs::generateContacts(){
+	generateContacts();
 
+	//the resolver
+	resolver.resolveContacts(cData.contactArray, cData.contactCount, duration);
+}
+
+//detects the collisions. Magic.
+void Springs::generateContacts(){
+	//RigidBodyApplication::generateContacts();
+
+	cData.reset(maxContacts);
+	for (int i = 0; i < 3; i ++ )
+	{
+		if ( !cData.hasMoreContacts( ) )
+			return;
+		CollisionDetector :: boxAndHalfSpace( cubes[i], plane, &cData );
+	}
 }
 void Springs::updateObjects(real duration){
+	//RigidBodyApplication.updateObjects(duration);
 	for(int i = 0; i < 3; i ++){
 		cubes[i].body ->integrate(duration);
 		cubes[i].calculateInternals();
