@@ -17,7 +17,7 @@ public:
 	// Draws the box 
 	void render();
 	//void displayCube();
-
+	void update();
 	// Sets the box to a specific location
 	void setState(const cyclone::Vector3 &position,
 				  const cyclone::Quaternion &orientation,

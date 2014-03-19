@@ -8,11 +8,15 @@ Cube::Cube(	Vector3 &position,
 {
 	body = new RigidBody();
 	this->setState(position, orientation, extents, velocity);
+	body->addForce( Vector3(0, -1, 0));
 }
+
 Cube::Cube(){
 	body = new RigidBody();
 }
-
+void Cube::update(){
+	//std::cout << body->getPosition().y <<std::endl;
+}
 void Cube::render()
 {
 	// Get the OpenGL transformation
@@ -51,11 +55,12 @@ void Cube::setState(const cyclone::Vector3 &position,
     body->setLinearDamping(0.95f);
     body->setAngularDamping(0.8f);
     body->clearAccumulators();
-    body->setAcceleration(0,-10.0f,0);
-
-    body->setAwake();
-
+	body->setAcceleration(Vector3::GRAVITY);
+	body->setAwake(true);
+	body->setCanSleep(false);
+	offset = Matrix4();
     body->calculateDerivedData();
+	calculateInternals();
 }
 
 Cube::~Cube(void)

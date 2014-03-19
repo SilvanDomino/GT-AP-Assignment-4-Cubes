@@ -33,4 +33,17 @@ void LevelGraph::displayLevel(){
         }
         glEnd();
     }
+
+	glBegin(GL_LINES);
+	glColor3f(0.7f,0.7f,0.8f);
+    glVertex3f(0,0,0);
+    glVertex3f(0,20,0);
+	
+	for(int i = 0; i < 10; i++){
+		glVertex3f(0, i,-0.5f);
+		glVertex3f(0, i,0.5f);
+		glVertex3f(-0.5f, i,0);
+		glVertex3f(0.5f, i,0);
+	}
+	glEnd();
 }

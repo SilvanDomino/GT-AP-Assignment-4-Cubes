@@ -2,7 +2,7 @@
 #include "..\cyclone-physics-master\include\cyclone\cyclone.h"
 #include "app.h"
 #include "timing.h"
-
+#include <iostream>
 #include <stdio.h>
 #include <cassert>
 #include "../Cube.h"
@@ -12,7 +12,7 @@ using namespace cyclone;
 class Springs : public RigidBodyApplication
 {
 	Cube cubes[3];
-
+	CollisionPlane plane;
 	/** Processes the contact generation code. */
     virtual void generateContacts();
 
@@ -47,7 +47,7 @@ public:
 Springs::Springs():RigidBodyApplication()
 {
 	for(int i = 0; i < 3; i ++){
-		cubes[i] = Cube(Vector3(0,i,0), Quaternion(), Vector3(0.5,0.5,0.5), Vector3(0,0,0));
+		cubes[i] = Cube(Vector3(0,7,i*3 - 1), Quaternion(), Vector3(0.5,0.5,0.5), Vector3(0,0,0));
 	}
 }
 
@@ -82,11 +82,23 @@ void Springs::display()
 void Springs::update()
 {
     RigidBodyApplication::update();
+	for(int i = 0; i < 3; i ++){
+		cubes[i].update();
+	}
+	float duration = (float)TimingData::get().lastFrameDuration * 0.0002f;
+	updateObjects(duration);
 }
 void Springs::generateContacts(){
 
 }
 void Springs::updateObjects(real duration){
+	for(int i = 0; i < 3; i ++){
+		cubes[i].body ->integrate(duration);
+		cubes[i].calculateInternals();
+	}
+	if(cubes[0].body->getPosition().y > -3){
+		//std::cout << 0 << "  " << cubes[0].body->getPosition().y << std::endl;
+	}
 
 }
 
