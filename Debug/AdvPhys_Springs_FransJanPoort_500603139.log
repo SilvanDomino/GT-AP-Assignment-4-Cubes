@@ -1,21 +1,11 @@
-﻿Build started 3/19/2014 5:41:18 PM.
-     1>Project "D:\GitRepos\GT-AP-Assignment-4-Cubes\AdvPhys_Springs_FransJanPoort_500603139.vcxproj" on node 2 (rebuild target(s)).
-     1>_PrepareForClean:
-         Deleting file "Debug\AdvPhys_Springs_FransJanPoort_500603139.lastbuildstate".
+﻿Build started 3/20/2014 11:15:07 AM.
+     1>Project "D:\GitRepos\GT-AP-Assignment-4-Cubes\AdvPhys_Springs_FransJanPoort_500603139.vcxproj" on node 2 (build target(s)).
      1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(299,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
-       InitializeBuildStatus:
-         Touching "Debug\AdvPhys_Springs_FransJanPoort_500603139.unsuccessfulbuild".
+     1>InitializeBuildStatus:
+         Creating "Debug\AdvPhys_Springs_FransJanPoort_500603139.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Cube.cpp LevelGraph.cpp src\app.cpp src\main.cpp src\springs.cpp src\timing.cpp
-         timing.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt src\springs.cpp
          springs.cpp
-         main.cpp
-         app.cpp
-         LevelGraph.cpp
-     1>d:\gitrepos\gt-ap-assignment-4-cubes\levelgraph.cpp(25): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
-     1>d:\gitrepos\gt-ap-assignment-4-cubes\levelgraph.cpp(25): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
-         Cube.cpp
-         Generating Code...
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:".\bin\AdvPhys_Springs_FransJanPoort_500603139.exe" /NOLOGO opengl32.lib glu32.lib glut32.lib winmm.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\AdvPhys_Springs_FransJanPoort_500603139.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\GitRepos\GT-AP-Assignment-4-Cubes\bin\AdvPhys_Springs_FransJanPoort_500603139.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\bin\AdvPhys_Springs_FransJanPoort_500603139.lib" /MACHINE:X86 Debug\Cube.obj
          Debug\LevelGraph.obj
@@ -24,14 +14,15 @@
          Debug\springs.obj
          Debug\timing.obj
          "D:\GitRepos\GT-AP-Assignment-4-Cubes\cyclone-physics-master\lib\cyclone_d.lib"
+         LINK : .\bin\AdvPhys_Springs_FransJanPoort_500603139.exe not found or not built by the last incremental link; performing full link
          AdvPhys_Springs_FransJanPoort_500603139.vcxproj -> D:\GitRepos\GT-AP-Assignment-4-Cubes\.\bin\AdvPhys_Springs_FransJanPoort_500603139.exe
        Manifest:
          C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:".\bin\AdvPhys_Springs_FransJanPoort_500603139.exe;#1" /manifest Debug\AdvPhys_Springs_FransJanPoort_500603139.exe.intermediate.manifest
        FinalizeBuildStatus:
          Deleting file "Debug\AdvPhys_Springs_FransJanPoort_500603139.unsuccessfulbuild".
          Touching "Debug\AdvPhys_Springs_FransJanPoort_500603139.lastbuildstate".
-     1>Done Building Project "D:\GitRepos\GT-AP-Assignment-4-Cubes\AdvPhys_Springs_FransJanPoort_500603139.vcxproj" (rebuild target(s)).
+     1>Done Building Project "D:\GitRepos\GT-AP-Assignment-4-Cubes\AdvPhys_Springs_FransJanPoort_500603139.vcxproj" (build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:04.16
+Time Elapsed 00:00:01.59

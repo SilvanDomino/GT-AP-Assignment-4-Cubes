@@ -7,11 +7,13 @@ class Cube : public cyclone::CollisionBox
 {
 public:
 	bool isOverlapping;
+	float size;
 	Cube();
 	Cube(	Vector3 &position,
 			Quaternion &orientation,
 			Vector3 &extents,
-			Vector3 &velocity);
+			Vector3 &velocity,
+			float size);
 	~Cube(void);
 	
 	// Draws the box 
@@ -24,7 +26,5 @@ public:
                   const cyclone::Vector3 &extents,
                   const cyclone::Vector3 &velocity);
 
-	Vector3 vertices[8];
-	cyclone::RigidBody rigidBody;
 };
 

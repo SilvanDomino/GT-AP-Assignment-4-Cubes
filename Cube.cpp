@@ -1,14 +1,18 @@
 #include "Cube.h"
 #include <iostream>
 
-Cube::Cube(	Vector3 &position,
-			Quaternion &orientation,
-            Vector3 &extents,
-            Vector3 &velocity)
+Cube::Cube(	
+	Vector3 &position,
+	Quaternion &orientation,
+    Vector3 &extents,
+    Vector3 &velocity,
+	float size )
 {
 	body = new RigidBody();
+	extents*= size;
 	this->setState(position, orientation, extents, velocity);
-	body->addForce( Vector3(0, -1, 0));
+	body->addForce( Vector3::GRAVITY);
+	this->size = size;
 }
 
 Cube::Cube(){

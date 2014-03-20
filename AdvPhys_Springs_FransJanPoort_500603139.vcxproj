@@ -86,6 +86,7 @@
     <ClInclude Include="LevelGraph.h" />
     <ClInclude Include="src\app.h" />
     <ClInclude Include="src\timing.h" />
+    <ClInclude Include="Wall.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
