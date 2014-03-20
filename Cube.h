@@ -8,12 +8,15 @@ class Cube : public cyclone::CollisionBox
 public:
 	bool isOverlapping;
 	float size;
+	float mass;
+	Vector3 color;
 	Cube();
 	Cube(	Vector3 &position,
 			Quaternion &orientation,
 			Vector3 &extents,
 			Vector3 &velocity,
-			float size);
+			float size,
+			float mass);
 	~Cube(void);
 	
 	// Draws the box 

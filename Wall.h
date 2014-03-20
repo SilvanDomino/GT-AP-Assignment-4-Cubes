@@ -14,7 +14,8 @@ class Springs : public RigidBodyApplication
 	CollisionPlane plane;
 	Cube shootCube;
 	Vector3 shootCubeDir;
-	bool hasHit;
+	bool theHorror;
+	bool gravity;
 	/** Processes the contact generation code. */
     virtual void generateContacts();
 
@@ -26,6 +27,9 @@ class Springs : public RigidBodyApplication
 public:
     /** Creates a new demo object. */
     Springs();
+	void SpawnWall();
+	void SpawnCube();
+
     virtual ~Springs();
     /** Returns the window title for the demo. */
     virtual const char* getTitle();

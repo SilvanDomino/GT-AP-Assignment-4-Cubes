@@ -10,6 +10,7 @@ LevelGraph::~LevelGraph(void)
 {
 }
 
+//this renders magic.
 void LevelGraph::displayLevel(){
 	glBegin(GL_LINES);
 	
@@ -20,10 +21,10 @@ void LevelGraph::displayLevel(){
     glVertex3f(0,0,20);
 	glEnd();
 	
-	float numCircles = 10;
+	float numCircles = 15;
 	float size = 2;
 	glColor3f(0.8, 0.8, 1);
-    for (unsigned i = 1; i < 10; i++)
+    for (unsigned i = 1; i < 20; i++)
     {
         glBegin(GL_LINE_LOOP);
         for (unsigned j = 0; j < 32; j++)
