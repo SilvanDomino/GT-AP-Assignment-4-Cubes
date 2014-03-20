@@ -7,12 +7,14 @@
 #include <cassert>
 #include "Cube.h"
 #include "LevelGraph.h"
+
 class Springs : public RigidBodyApplication
 {
-	Cube cubes[3];
+	Cube cubes[25];
 	CollisionPlane plane;
 	Cube shootCube;
 	Vector3 shootCubeDir;
+	bool hasHit;
 	/** Processes the contact generation code. */
     virtual void generateContacts();
 

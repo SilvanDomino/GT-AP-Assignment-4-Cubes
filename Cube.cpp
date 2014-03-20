@@ -27,7 +27,7 @@ void Cube::render()
     GLfloat mat[16];
     body->getGLTransform(mat);
 
-    if (isOverlapping) glColor3f(0.7f,1.0f,0.7f);
+    if (isOverlapping) glColor3f(0.5f, 0.8f, 0.5f);
     else if (body->getAwake()) glColor3f(1.0f,0.7f,0.7f);
     else glColor3f(0.7f,0.7f,1.0f);
 
@@ -49,7 +49,7 @@ void Cube::setState(const cyclone::Vector3 &position,
     body->setRotation(cyclone::Vector3(0,0,0));
     halfSize = extents;
 
-    cyclone::real mass = halfSize.x * halfSize.y * halfSize.z * 8.0f;
+    cyclone::real mass = halfSize.x * halfSize.y * halfSize.z * 4.0f;
     body->setMass(mass);
 
     cyclone::Matrix3 tensor;
